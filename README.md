@@ -58,6 +58,7 @@ async function fetchData() {
   return response.json();
 }
 
+// Log the result when the promise resolves
 logAsync(fetchData());
 ```
 
@@ -78,7 +79,7 @@ logger.log(complexObject);
 
 ## API
 
-See [API documentation](https://theeraphatstudent.github.io/safe-stringify/) for complete details.
+See [API documentation](./docs/API.md) for complete details.
 
 ## License
 
