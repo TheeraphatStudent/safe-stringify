@@ -1,4 +1,7 @@
+import { safeStringify } from 'safe-stringify-ts';
+
 document.addEventListener('DOMContentLoaded', () => {
+    // Copy button functionality
     document.querySelectorAll('.copy-btn').forEach(button => {
         button.addEventListener('click', () => {
             const target = button.getAttribute('data-target');
@@ -13,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Example runners
     const examples = {
         basic: () => {
             const obj = {
@@ -46,64 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    const safeStringify = (obj) => {
-        const getType = (value) => {
-            if (value === null) return 'null';
-            if (typeof window !== 'undefined' && value === window) return 'window';
-            if (typeof Node !== 'undefined' && value instanceof Node) return 'node';
-            if (value instanceof Error) return 'error';
-            if (value instanceof Date) return 'date';
-            if (value instanceof RegExp) return 'regexp';
-            if (Array.isArray(value)) return 'array';
-            return typeof value;
-        };
-
-        const getStringValue = (value, type) => {
-            const typeHandlers = {
-                undefined: () => 'undefined',
-                function: (v) => `[Function: ${v.name || 'anonymous'}]`,
-                symbol: (v) => v.toString(),
-                node: (v) => `[${v.nodeName || 'Node'}]`,
-                error: (v) => `${v.name}: ${v.message}\n${v.stack}`,
-                date: (v) => v.toISOString(),
-                regexp: (v) => v.toString(),
-                window: () => '[Window]',
-                bigint: (v) => v.toString(),
-                number: (v) => (isNaN(v) ? 'NaN' : v),
-            };
-
-            return typeHandlers[type] ? typeHandlers[type](value) : value;
-        };
-
-        const seen = new WeakSet();
-        const processValue = (value) => {
-            const type = getType(value);
-
-            if (type === 'object' || type === 'array') {
-                if (seen.has(value)) return '[Circular]';
-                seen.add(value);
-
-                const result = type === 'array' ? [] : {};
-                for (const key in value) {
-                    try {
-                        result[key] = processValue(value[key]);
-                    } catch (err) {
-                        result[key] = `[Error extracting property: ${err.message}]`;
-                    }
-                }
-                return result;
-            }
-
-            return getStringValue(value, type);
-        };
-
-        try {
-            return JSON.stringify(processValue(obj), null, 2);
-        } catch (err) {
-            return `[Stringify Error: ${err.message}]`;
-        }
-    };
-
+    // Run button functionality
     document.querySelectorAll('.run-btn').forEach(button => {
         button.addEventListener('click', async () => {
             const example = button.getAttribute('data-example');

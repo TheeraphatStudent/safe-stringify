@@ -1,0 +1,15 @@
+{
+  "name": "safe-stringify-ts-docs",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Documentation for safe-stringify-ts",
+  "scripts": {
+    "dev": "http-server"
+  },
+  "dependencies": {
+    "safe-stringify-ts": "^0.1.0"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
