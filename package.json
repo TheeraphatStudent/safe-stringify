@@ -1,5 +1,5 @@
 {
-  "name": "safe-stringify-ts",
+  "name": "@theeraphat.th/safe-stringify-ts",
   "version": "0.1.0",
   "description": "Safely stringify any JavaScript object with circular reference detection",
   "main": "dist/index.js",
@@ -22,7 +22,7 @@
     "logger",
     "typescript"
   ],
-  "author": "",
+  "author": "theeraphatchueanokkhum@gmail.com",
   "license": "MIT",
   "dependencies": {
     "lucide-react": "^0.358.0",
@@ -51,5 +51,16 @@
     "dist",
     "README.md",
     "LICENSE"
-  ]
+  ],
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheeraphatStudent/safe-stringify.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TheeraphatStudent/safe-stringify/issues"
+  },
+  "homepage": "https://github.com/TheeraphatStudent/safe-stringify#readme"
 }
