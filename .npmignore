@@ -1,8 +1,5 @@
 # Source files
-src/App.tsx
-src/main.tsx
-src/tests
-src/vite-env.d.ts
+doc
 
 # Config files
 .eslintrc.js
