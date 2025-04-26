@@ -78,7 +78,7 @@ logger.log(complexObject);
 
 ## API
 
-See [API documentation](./docs/API.md) for complete details.
+See [API documentation](https://theeraphatstudent.github.io/safe-stringify/) for complete details.
 
 ## License
 
